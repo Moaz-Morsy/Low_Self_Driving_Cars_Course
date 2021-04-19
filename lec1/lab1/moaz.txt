@@ -1,0 +1,67 @@
+Q1- 
+cat: display contents of a file if we use cat like that "cat file_name"
+more: this command is used with cat to display contents of a file line by line
+------
+Q2-
+we use "pwd" to display of our directory
+result: /home/moaz
+------
+Q3-
+mkdir sample
+------
+Q4-
+cd sample
+mkdir hello
+------
+Q5-
+mkdir sample/hello
+------
+Q6-
+rm -d hello
+------
+Q7-
+mkdir sample sample/hello
+------
+Q8-
+touch hidden_file
+mv hidden_file .hidden_file
+------
+Q9-
+rmdir: remove a directory in current path
+rm: an exising file in the directory
+------
+Q10-
+mkdir dir dir/dir1 dir/dir2 dir/dir1/file1.txt
+------
+Q11-
+rm -r dir1
+------
+Q12-
+rmdir -p dir/dir2
+------
+Q13-
+absolute: /home/moaz/Downloads/WS-ITI
+relative: WS-ITI
+------
+Q14-
+cp etc/passwd /home/moaz/my_passwd
+sudo mv my_passwd old_passed
+------
+Q15-
+1st: cd /home/moaz
+2nd: cd ~
+3rd: cd .. then cd .. then cd /home/moaz 
+------
+Q16-
+ls -F w*
+------
+Q17-
+head -n4 passwd
+------
+Q18-
+tail -n7 passwd
+------
+Q19-
+cat >my_code then write moaz iti
+grep -r moaz
+------
