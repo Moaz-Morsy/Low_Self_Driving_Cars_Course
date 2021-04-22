@@ -4,3 +4,6 @@
 [submodule "lec2/task2"]
 	path = lec2/task2
 	url = https://github.com/Moaz-Morsy/Self_Driving_Cars_Course.git
+[submodule "Git/tsak2"]
+	path = Git/tsak2
+	url = https://github.com/Moaz-Morsy/Self_Driving_Cars_Course.git
