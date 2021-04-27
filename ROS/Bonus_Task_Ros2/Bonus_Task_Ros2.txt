@@ -1,0 +1,10 @@
+    /////////////////  Bounus ROS2    /////////////////////
+
+1- run turtlesim node 
+2- call spawn service using (client_node not using ros2 service call) 
+3- locate new turtle in x:4 Y:8 theta :0.5 name : new_turtle
+
+
+Deadline is 27 Apr   11:59 pm   
+
+send task (1 executable) to : ahmed.gharieb242@gmail.com
