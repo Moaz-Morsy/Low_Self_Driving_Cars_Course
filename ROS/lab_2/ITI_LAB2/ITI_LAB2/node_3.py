@@ -16,7 +16,7 @@ class node_3(Node):
         client = self.create_client(SetBool,"number_counter_server")
         # self.get_logger().warn("Ok call")
         while client.wait_for_service(0.5) == False:
-            self.get_logger().warn("Ok call")
+            self.get_logger().warn("Wait for Server")
         
         request = SetBool.Request()
         request.data = data
@@ -26,6 +26,8 @@ class node_3(Node):
 
     def future_call(self,future_msg):
         if future_msg.result().success:
+            self.get_logger().info(future_msg.result().message)
+        else:
             self.get_logger().info(future_msg.result().message)
 
 def main(args=None):

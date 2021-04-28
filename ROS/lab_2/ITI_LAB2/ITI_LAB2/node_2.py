@@ -30,11 +30,17 @@ class node_2(Node):
     def srv_call(self,rq,rsp):
         req_data = rq.data
         if req_data == True:
-            rsp.message = "Counter Done Reset"
+            rsp.message = "Counter is resetted"
             rsp.success = True
             self.acc = 0
-            self.get_logger().info("Counter is reset to 0")
-        return rsp
+            self.get_logger().info("Counter is resetting to 0")
+            return rsp
+        elif req_data == False:
+            rsp.message = "Counter is continuous"
+            rsp.success = False
+            self.get_logger().info("Counter is continuing")
+            return rsp
+        # return rsp
 
 def main(args=None):
     rclpy.init(args=args)
