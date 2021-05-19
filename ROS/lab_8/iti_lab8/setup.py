@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 from glob import glob
-package_name = 'iti_lab6'
+package_name = 'iti_lab8'
 
 setup(
     name=package_name,
@@ -22,8 +22,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "pub=iti_lab6.pub_test:main",
-            "sub=iti_lab6.sub_test:main"
+            "pub=iti_lab8.pub_test:main",
+            "sub=iti_lab8.sub_test:main"
         ],
     },
 )

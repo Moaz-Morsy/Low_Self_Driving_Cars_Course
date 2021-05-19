@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'iti_lab7'
+package_name = 'iti_lab9'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "move_turtle=iti_lab7.node1:main"
+            "move_turtle=iti_lab9.node1:main"
         ],
     },
 )
