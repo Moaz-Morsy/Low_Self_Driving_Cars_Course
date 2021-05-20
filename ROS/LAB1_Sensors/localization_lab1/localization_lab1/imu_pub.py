@@ -30,6 +30,9 @@ class my_node (Node):
         return Quaternion(x=qx, y=qy, z=qz, w=qw)
     
     def timer_call(self):
+        self.imu_msg.header.stamp = self.get_clock().now().to_msg()
+        # self.get_logger().info(str(self.imu_msg.header.stamp))
+        
         self.imu_msg.orientation.w = 0.0
         self.imu_msg.orientation.x = 0.0
         self.imu_msg.orientation.y = 0.0
