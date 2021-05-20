@@ -2,6 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion
 from math import sin, cos, pi
@@ -16,7 +17,7 @@ class my_node (Node):
             reader=csv.reader(file)
             self.values=[row for row in reader]
         self.get_logger().info("Node is started")
-        self.obj_pub=self.create_publisher(Imu,"zed2_imu",10)
+        self.obj_pub=self.create_publisher(Imu,"zed2_imu",qos_profile_sensor_data)
         self.imu_msg = Imu()
         self.imu_msg.header.frame_id= "zed2_imu_link"
         self.create_timer(1/30,self.timer_call)

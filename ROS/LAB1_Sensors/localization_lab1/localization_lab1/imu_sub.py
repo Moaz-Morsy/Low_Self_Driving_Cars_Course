@@ -2,6 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion
 from math import sin, cos, pi
@@ -9,7 +10,7 @@ import numpy as np
 class my_node (Node):
     def __init__(self):
         super().__init__("sub_node")
-        self.create_subscription(Imu,"/imu",self.timer_call,10)
+        self.create_subscription(Imu,"/imu",self.timer_call,qos_profile_sensor_data)
         
         self.get_logger().info("subscriber is started")
 
