@@ -5,11 +5,11 @@ def generate_launch_description():
     obj_launch=LaunchDescription()
 
     node1 = Node(
-        package="iti_lab6",
+        package="iti_lab8",
         executable="pub"
     )
     node2 = Node(
-        package="iti_lab6",
+        package="iti_lab8",
         executable="sub"
     )
 
