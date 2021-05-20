@@ -34,10 +34,10 @@ class my_node (Node):
 
     def timer_call(self,imu_msg):
 
-        _,_,z = self.euler_from_quaternion(imu_msg.orientation)
+        _,_,yaw = self.euler_from_quaternion(imu_msg.orientation)
 
-        if z<=2 or z>=-2:
-            self.get_logger().info(f"The robot is nearly heading north .. Heading is: {z} degrees")
+        if yaw<=2 or yaw>=-2:
+            self.get_logger().info(f"The robot is nearly heading north .. Heading is: {yaw} degrees")
         
         if imu_msg.linear_acceleration.x>0.3:
             self.get_logger().warn(f"Warning !! .. linear acceleration x exceeded the limit . Current acceleration is {imu_msg.linear_acceleration.x} m/s^2")
