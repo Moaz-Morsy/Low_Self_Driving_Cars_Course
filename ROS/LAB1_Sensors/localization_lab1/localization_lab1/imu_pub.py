@@ -2,7 +2,8 @@
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
+# from rclpy.qos import qos_profile_sensor_data
+from rclpy.qos import QoSProfile
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion
 from math import sin, cos, pi
@@ -12,12 +13,13 @@ import csv
 class my_node (Node):
     def __init__(self):
         super().__init__("Node_name")
+        qos_profile = QoSProfile(depth=10)
         self.row = 0
         with open('/home/moaz/ROS_WS/src/localization_lab1/localization_lab1/imu_data.csv') as file:
             reader=csv.reader(file)
             self.values=[row for row in reader]
         self.get_logger().info("Node is started")
-        self.obj_pub=self.create_publisher(Imu,"zed2_imu",qos_profile_sensor_data)
+        self.obj_pub=self.create_publisher(Imu,"zed2_imu",qos_profile)
         self.imu_msg = Imu()
         self.imu_msg.header.frame_id= "zed2_imu_link"
         self.create_timer(1/30,self.timer_call)
@@ -51,8 +53,8 @@ class my_node (Node):
             self.imu_msg.angular_velocity_covariance=[0.0001, 0.0, 0.0, 0.0, 0.0001, 0.0, 0.0, 0.0, 0.0001]
         else:
             self.get_logger().info(f"larger than 0.3, row {self.row}")
-            self.imu_msg.orientation_covariance = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1]
-            self.imu_msg.angular_velocity_covariance=[0.0001, 0.0, 0.0, 0.0, 0.0001, 0.0, 0.0, 0.0, 0.1]
+            self.imu_msg.orientation_covariance = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+            self.imu_msg.angular_velocity_covariance=[0.0001, 0.0, 0.0, 0.0, 0.0001, 0.0, 0.0, 0.0, 1.0]
 
         # linear acceleration
         self.imu_msg.linear_acceleration.x = float(self.values[self.row][0])*9.8
