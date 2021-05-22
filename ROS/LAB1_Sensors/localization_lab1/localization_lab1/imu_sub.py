@@ -38,6 +38,7 @@ class my_node (Node):
     def timer_call(self,imu_msg):
 
         _,_,yaw = self.euler_from_quaternion(imu_msg.orientation)
+        yaw = yaw*(180/pi)
 
         if yaw<=2 or yaw>=-2:
             self.get_logger().info(f"The robot is nearly heading north .. Heading is: {yaw} degrees")
