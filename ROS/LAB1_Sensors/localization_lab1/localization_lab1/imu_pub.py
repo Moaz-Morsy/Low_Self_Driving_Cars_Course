@@ -20,8 +20,8 @@ class my_node (Node):
             self.values=[row for row in reader]
         self.get_logger().info("Node is started")
         self.obj_pub=self.create_publisher(Imu,"zed2_imu",qos_profile)
-        self.imu_msg = Imu()
-        self.imu_msg.header.frame_id= "zed2_imu_link"
+        # self.imu_msg = Imu()
+        # self.imu_msg.header.frame_id= "zed2_imu_link"
         self.create_timer(1/30,self.timer_call)
 
 
@@ -33,6 +33,8 @@ class my_node (Node):
         return Quaternion(x=qx, y=qy, z=qz, w=qw)
     
     def timer_call(self):
+        self.imu_msg = Imu()
+        self.imu_msg.header.frame_id= "zed2_imu_link"
         self.imu_msg.header.stamp = self.get_clock().now().to_msg()
         # self.get_logger().info(str(self.imu_msg.header.stamp))
         
