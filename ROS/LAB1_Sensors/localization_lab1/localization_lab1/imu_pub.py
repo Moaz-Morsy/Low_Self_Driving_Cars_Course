@@ -41,7 +41,7 @@ class my_node (Node):
         self.imu_msg.orientation.w = 0.0
         self.imu_msg.orientation.x = 0.0
         self.imu_msg.orientation.y = 0.0
-        self.imu_msg.orientation.z = self.quaternion_from_euler(0.0, 0.0, float(self.values[self.row][-1])).z
+        self.imu_msg.orientation.z = self.quaternion_from_euler(0.0, 0.0, float(self.values[self.row][-1])*(pi/180)).z
         #self.imu_msg.orientation_covariance = [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.001]
         # angular velocity
         self.imu_msg.angular_velocity.x = float(self.values[self.row][3])
