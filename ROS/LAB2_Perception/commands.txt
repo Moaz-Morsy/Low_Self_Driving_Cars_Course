@@ -1,0 +1,37 @@
+ros2 launch simulation_demo magni_house.launch.py
+ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=key_cmd_vel
+
+ros2 launch filter_pcl gazebo_filter_camera_launch.py
+
+ros2 run tf2_ros static_transform_publisher 0. 0. 0. -0.5 0.5 -0.5  0.5 base_link magni_robot::front_cam::camera_depth_optical_frame
+rviz2
+
+lab:
+
+Task:
+Same task as lab 1 using fusion of lidar & camera.
+
+
+ros2 launch simulation_demo magni_house.launch.py
+ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=key_cmd_vel
+ros2 launch filter_pcl gazebo_filter_camera_launch.py intel_rea/point -> intel/cropped
+
+1- Create a cpp node that subcribes to intel/cropped and publishes /cameraEmergency(of type carkyo_msgs::msg::Cameraemergency)
+2- Modify your override_cmd.py to use both of lidar and camera to override keyboard commands (key_cmd_vel, scan , cameraEmergency) output: cmd_vel
+
+ros2 run filter_pcl close_obst_detection
+python3 override_cmd.py
+
+
+
+
+Note : This is how you include the camera_emergency message
+#include "carkyo_msgs/msg/camera_emergency.hpp"
+
+
+
+ros2 launch simulation_demo magni_house.launch.py
+ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=key_cmd_vel
+ros2 launch filter_pcl gazebo_filter_camera_launch.py
+ros2 run filter_pcl close_obst_detection
+python3 override_cmd.py
