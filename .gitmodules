@@ -7,3 +7,6 @@
 [submodule "Graduation"]
 	path = Graduation
 	url = https://github.com/jinfagang/DCNv2_latest
+[submodule "Graduation Project/CenterTrack/src/lib/model/networks/DCNv2_latest"]
+	path = Graduation Project/CenterTrack/src/lib/model/networks/DCNv2_latest
+	url = https://github.com/jinfagang/DCNv2_latest
